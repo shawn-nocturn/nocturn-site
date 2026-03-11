@@ -3,27 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nocturn — The Agentic Work OS for Nightlife</title>
+<title>Nocturn — The Operating System for Nightlife</title>
 <meta name="description" content="Run your collective, sell tickets, get paid. Nocturn is the all-in-one operating system for nightlife collectives and promoters.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌙</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
   --purple: #7B2FF7;
-  --purple-light: #9B5FFF;
+  --purple-light: #A855F7;
+  --purple-glow: #C084FC;
   --purple-dark: #5A1FBF;
-  --teal: #00D4AA;
-  --teal-dark: #00A888;
-  --coral: #FF6B6B;
-  --amber: #FFB347;
-  --bg-primary: #0A0A0F;
-  --bg-secondary: #12121A;
-  --bg-card: #1A1A25;
-  --text-primary: #FFFFFF;
-  --text-secondary: #9BA1B0;
-  --text-muted: #6B7185;
-  --border: rgba(255,255,255,0.06);
+  --teal: #2DD4BF;
+  --teal-light: #5EEAD4;
+  --coral: #FB7185;
+  --amber: #FBBF24;
+  --bg-primary: #09090B;
+  --bg-secondary: #18181B;
+  --bg-card: #1C1C22;
+  --bg-card-hover: #222229;
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.12);
 }
 
 html { scroll-behavior: smooth; }
@@ -32,9 +36,10 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* --- AMBIENT BACKGROUND --- */
@@ -48,41 +53,29 @@ body {
 .ambient-glow::before {
   content: '';
   position: absolute;
-  top: -40%; left: -20%;
-  width: 80vw; height: 80vw;
+  top: -50%; left: -30%;
+  width: 90vw; height: 90vw;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(123,47,247,0.08) 0%, transparent 70%);
-  animation: drift 20s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(123,47,247,0.07) 0%, transparent 65%);
+  animation: drift 25s ease-in-out infinite;
 }
 .ambient-glow::after {
   content: '';
   position: absolute;
-  bottom: -30%; right: -20%;
-  width: 70vw; height: 70vw;
+  bottom: -40%; right: -25%;
+  width: 75vw; height: 75vw;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 70%);
-  animation: drift 25s ease-in-out infinite reverse;
+  background: radial-gradient(circle, rgba(45,212,191,0.05) 0%, transparent 65%);
+  animation: drift 30s ease-in-out infinite reverse;
 }
 @keyframes drift {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(5vw, 3vh); }
-}
-
-/* --- NOISE TEXTURE --- */
-.noise {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(4vw, 3vh) scale(1.05); }
 }
 
 /* --- LAYOUT --- */
 .container {
-  max-width: 1120px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
@@ -95,17 +88,17 @@ nav {
   top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 20px 0;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 nav.scrolled {
-  background: rgba(10,10,15,0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(9,9,11,0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
   padding: 14px 0;
 }
 .nav-inner {
-  max-width: 1120px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
@@ -115,29 +108,34 @@ nav.scrolled {
 .logo {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   letter-spacing: -0.03em;
   color: var(--text-primary);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
+.logo-emoji { font-size: 1.3rem; }
 .logo span { color: var(--purple-light); }
 .nav-cta {
-  padding: 10px 24px;
+  padding: 10px 22px;
   background: var(--purple);
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   font-family: 'Inter', sans-serif;
+  letter-spacing: -0.01em;
 }
 .nav-cta:hover {
   background: var(--purple-light);
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(123,47,247,0.4);
+  box-shadow: 0 8px 30px rgba(123,47,247,0.35);
 }
 
 /* --- HERO --- */
@@ -147,79 +145,85 @@ nav.scrolled {
   align-items: center;
   padding: 120px 0 80px;
 }
-.hero-content { max-width: 720px; }
+.hero-content { max-width: 680px; }
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px 6px 8px;
-  background: rgba(123,47,247,0.12);
-  border: 1px solid rgba(123,47,247,0.2);
+  padding: 6px 16px 6px 10px;
+  background: rgba(123,47,247,0.1);
+  border: 1px solid rgba(123,47,247,0.18);
   border-radius: 100px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  color: var(--purple-light);
+  color: var(--purple-glow);
   margin-bottom: 32px;
+  letter-spacing: 0.01em;
 }
 .hero-badge-dot {
-  width: 8px; height: 8px;
+  width: 7px; height: 7px;
   background: var(--teal);
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
+  50% { opacity: 0.4; transform: scale(0.7); }
 }
 .hero h1 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
-  font-weight: 800;
-  line-height: 1.05;
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.08;
   letter-spacing: -0.04em;
   margin-bottom: 24px;
+  color: var(--text-primary);
 }
 .hero h1 .gradient {
-  background: linear-gradient(135deg, var(--purple-light) 0%, var(--teal) 100%);
+  background: linear-gradient(135deg, var(--purple-glow) 0%, var(--teal) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.hero p {
-  font-size: 1.2rem;
+.hero-sub {
+  font-size: 1.15rem;
   color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 540px;
+  line-height: 1.75;
+  max-width: 520px;
   margin-bottom: 40px;
+  font-weight: 400;
 }
 
 /* --- WAITLIST FORM --- */
 .waitlist-form {
   display: flex;
-  gap: 12px;
-  max-width: 480px;
+  gap: 10px;
+  max-width: 460px;
 }
 .waitlist-form input {
   flex: 1;
   padding: 14px 18px;
-  background: var(--bg-card);
+  background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: 10px;
   color: var(--text-primary);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-family: 'Inter', sans-serif;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .waitlist-form input::placeholder { color: var(--text-muted); }
-.waitlist-form input:focus { border-color: var(--purple); }
+.waitlist-form input:focus {
+  border-color: rgba(123,47,247,0.5);
+  box-shadow: 0 0 0 3px rgba(123,47,247,0.1);
+}
 .waitlist-form button {
-  padding: 14px 28px;
+  padding: 14px 26px;
   background: var(--purple);
   color: white;
   border: none;
   border-radius: 10px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -229,271 +233,359 @@ nav.scrolled {
 .waitlist-form button:hover {
   background: var(--purple-light);
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(123,47,247,0.4);
+  box-shadow: 0 8px 30px rgba(123,47,247,0.35);
 }
 .form-note {
   margin-top: 14px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
 }
 .form-success {
   display: none;
   padding: 14px 20px;
-  background: rgba(0,212,170,0.1);
-  border: 1px solid rgba(0,212,170,0.2);
+  background: rgba(45,212,191,0.08);
+  border: 1px solid rgba(45,212,191,0.18);
   border-radius: 10px;
-  color: var(--teal);
-  font-size: 0.95rem;
+  color: var(--teal-light);
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
-/* --- STATS BAR --- */
-.stats-bar {
-  padding: 60px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+/* --- DIVIDER --- */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0;
 }
-.stats-grid {
+
+/* --- STORY SECTION --- */
+.story {
+  padding: 100px 0;
+}
+.story-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  text-align: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
 }
-.stat-number {
+.story-text h2 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, var(--purple-light), var(--teal));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  line-height: 1.15;
+  margin-bottom: 20px;
 }
-.stat-label {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 500;
-}
-
-/* --- FEATURES --- */
-.features {
-  padding: 120px 0;
-}
-.section-label {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: var(--purple-light);
-  margin-bottom: 16px;
-}
-.section-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 16px;
-  max-width: 600px;
-}
-.section-subtitle {
-  font-size: 1.1rem;
+.story-text p {
+  font-size: 1rem;
   color: var(--text-secondary);
-  max-width: 520px;
-  margin-bottom: 64px;
-  line-height: 1.6;
+  line-height: 1.8;
+  margin-bottom: 16px;
 }
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+.story-text p:last-child { margin-bottom: 0; }
+.story-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
-.feature-card {
-  padding: 36px 32px;
+.story-stat {
+  padding: 24px 28px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  transition: all 0.4s ease;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease;
 }
-.feature-card:hover {
-  border-color: rgba(123,47,247,0.2);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+.story-stat:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
 }
-.feature-icon {
-  width: 48px; height: 48px;
+.story-stat-icon {
+  width: 48px;
+  height: 48px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  flex-shrink: 0;
 }
-.feature-icon.purple { background: rgba(123,47,247,0.15); }
-.feature-icon.teal { background: rgba(0,212,170,0.15); }
-.feature-icon.coral { background: rgba(255,107,107,0.15); }
+.story-stat-icon.purple-bg { background: rgba(123,47,247,0.12); }
+.story-stat-icon.teal-bg { background: rgba(45,212,191,0.12); }
+.story-stat-icon.coral-bg { background: rgba(251,113,133,0.12); }
+.story-stat-text h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: var(--text-primary);
+}
+.story-stat-text p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --- FEATURES --- */
+.features {
+  padding: 100px 0;
+}
+.section-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: var(--purple-glow);
+  margin-bottom: 14px;
+}
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  margin-bottom: 14px;
+  max-width: 560px;
+  color: var(--text-primary);
+}
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin-bottom: 56px;
+  line-height: 1.7;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.feature-card {
+  padding: 32px 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.feature-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  background: var(--bg-card-hover);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+}
+.feature-emoji {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  display: block;
+}
 .feature-card h3 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   letter-spacing: -0.01em;
+  color: var(--text-primary);
 }
 .feature-card p {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* --- HOW IT WORKS --- */
 .how-it-works {
-  padding: 120px 0;
-  border-top: 1px solid var(--border);
+  padding: 100px 0;
 }
 .steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
-  margin-top: 64px;
+  gap: 40px;
+  margin-top: 56px;
 }
-.step {
-  position: relative;
-}
+.step { position: relative; }
 .step-number {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 800;
-  color: rgba(123,47,247,0.12);
+  background: linear-gradient(180deg, rgba(123,47,247,0.2) 0%, rgba(123,47,247,0.03) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   line-height: 1;
   margin-bottom: 16px;
 }
 .step h3 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 10px;
+  color: var(--text-primary);
 }
 .step p {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-/* --- BUILT FOR --- */
-.built-for {
-  padding: 120px 0;
-  border-top: 1px solid var(--border);
+/* --- AUDIENCE --- */
+.audience {
+  padding: 100px 0;
 }
-.built-for-grid {
+.audience-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 64px;
+  gap: 20px;
+  margin-top: 56px;
 }
-.built-for-card {
-  padding: 40px 36px;
+.audience-card {
+  padding: 36px 32px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  transition: all 0.4s ease;
+  border-radius: 14px;
+  transition: all 0.3s ease;
 }
-.built-for-card:hover {
-  border-color: rgba(123,47,247,0.2);
+.audience-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
 }
-.built-for-card .emoji {
-  font-size: 2rem;
+.audience-card .emoji {
+  font-size: 1.8rem;
+  margin-bottom: 18px;
+  display: block;
+}
+.audience-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.audience-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* --- QUOTE --- */
+.quote-section {
+  padding: 80px 0;
+  text-align: center;
+}
+.quote-block {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 40px;
+  background: linear-gradient(135deg, rgba(123,47,247,0.06) 0%, rgba(45,212,191,0.04) 100%);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+.quote-block p {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
   margin-bottom: 20px;
 }
-.built-for-card h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-.built-for-card p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
+.quote-block cite {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
 /* --- FINAL CTA --- */
 .final-cta {
-  padding: 120px 0;
+  padding: 100px 0;
   text-align: center;
-  border-top: 1px solid var(--border);
 }
 .final-cta .section-title {
-  max-width: 600px;
-  margin: 0 auto 16px;
+  max-width: 520px;
+  margin: 0 auto 14px;
 }
 .final-cta .section-subtitle {
-  max-width: 480px;
+  max-width: 440px;
   margin: 0 auto 40px;
 }
 .final-cta .waitlist-form {
   margin: 0 auto;
   justify-content: center;
 }
-.final-cta .form-note {
-  text-align: center;
-}
+.final-cta .form-note { text-align: center; }
 
 /* --- FOOTER --- */
 footer {
   padding: 40px 0;
   border-top: 1px solid var(--border);
-  text-align: center;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 footer p {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
 }
 footer a {
   color: var(--text-secondary);
   text-decoration: none;
+  transition: color 0.2s;
 }
 footer a:hover { color: var(--purple-light); }
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+.footer-links a {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-  .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .stat-number { font-size: 1.8rem; }
+  .story-grid { grid-template-columns: 1fr; gap: 40px; }
   .features-grid { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: 1fr; gap: 32px; }
-  .built-for-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; gap: 28px; }
+  .audience-grid { grid-template-columns: 1fr; }
   .waitlist-form { flex-direction: column; }
   .waitlist-form button { width: 100%; }
   .hero { padding: 100px 0 60px; }
-}
-@media (max-width: 480px) {
-  .stats-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+  .quote-block { padding: 32px 24px; }
+  .quote-block p { font-size: 1.2rem; }
 }
 
 /* --- ANIMATIONS --- */
 .fade-up {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
+.fade-up.delay-1 { transition-delay: 0.1s; }
+.fade-up.delay-2 { transition-delay: 0.2s; }
+.fade-up.delay-3 { transition-delay: 0.3s; }
 </style>
 </head>
 <body>
 
 <div class="ambient-glow"></div>
-<div class="noise"></div>
 
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#" class="logo">nocturn<span>.</span></a>
-    <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+    <a href="#" class="logo">
+      <span class="logo-emoji">🌙</span>
+      nocturn<span>.</span>
+    </a>
+    <a href="#waitlist" class="nav-cta">Get Early Access</a>
   </div>
 </nav>
 
@@ -503,194 +595,237 @@ footer a:hover { color: var(--purple-light); }
     <div class="hero-content fade-up">
       <div class="hero-badge">
         <div class="hero-badge-dot"></div>
-        Now building — launching Summer 2026
+        Launching Summer 2026
       </div>
-      <h1>The operating system<br>for <span class="gradient">nightlife</span></h1>
-      <p>Run your collective, sell tickets, and get paid — all from one platform. Nocturn replaces your spreadsheets, group chats, and manual workflows with AI-powered tools built for nightlife operators.</p>
+      <h1>Run your night.<br><span class="gradient">All of it.</span></h1>
+      <p class="hero-sub">Nocturn is the operating system for nightlife collectives. Plan events, sell tickets, split revenue, and grow your crew — with AI that handles the busywork so you can focus on the experience.</p>
       <form class="waitlist-form" id="waitlist-form-hero">
-        <input type="email" placeholder="Enter your email" required>
+        <input type="email" placeholder="your@email.com" required>
         <button type="submit">Join Waitlist</button>
       </form>
-      <p class="form-note">Free early access. No credit card required.</p>
-      <div class="form-success" id="success-hero">You're on the list. We'll be in touch soon.</div>
+      <p class="form-note">Free early access for founding collectives. No credit card needed.</p>
+      <div class="form-success" id="success-hero">You're on the list. We'll reach out soon.</div>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats-bar">
+<div class="divider"></div>
+
+<!-- THE STORY -->
+<section class="story">
   <div class="container">
-    <div class="stats-grid fade-up">
-      <div>
-        <div class="stat-number">$30B+</div>
-        <div class="stat-label">Global Nightlife Market</div>
+    <div class="story-grid">
+      <div class="story-text fade-up">
+        <div class="section-label">The Problem</div>
+        <h2>Nightlife runs on chaos. It doesn't have to.</h2>
+        <p>Every weekend, thousands of collectives — crews of promoters, DJs, and creatives — pull off incredible events. But behind the scenes, it's a mess of spreadsheets, group chats, cash apps, and manual hustle.</p>
+        <p>There's no tool built for how nightlife actually works. Event platforms serve fans. Venue software serves buildings. Nobody serves the operators — the people who actually make the night happen.</p>
+        <p>That's what Nocturn is for.</p>
       </div>
-      <div>
-        <div class="stat-number">0</div>
-        <div class="stat-label">Tools Built for Operators</div>
-      </div>
-      <div>
-        <div class="stat-number">1</div>
-        <div class="stat-label">Platform to Change That</div>
+      <div class="story-visual fade-up delay-1">
+        <div class="story-stat">
+          <div class="story-stat-icon purple-bg">📱</div>
+          <div class="story-stat-text">
+            <h4>5+ apps per event</h4>
+            <p>Promoters juggle ticketing, payments, messaging, docs, and social — none of them talk to each other</p>
+          </div>
+        </div>
+        <div class="story-stat">
+          <div class="story-stat-icon teal-bg">💸</div>
+          <div class="story-stat-text">
+            <h4>Revenue gets lost</h4>
+            <p>Manual splits, late payments, and no financial visibility cost collectives thousands each year</p>
+          </div>
+        </div>
+        <div class="story-stat">
+          <div class="story-stat-icon coral-bg">⏳</div>
+          <div class="story-stat-text">
+            <h4>20+ hours per event</h4>
+            <p>Admin work that could be automated eats into time better spent on creative and community</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
 
 <!-- FEATURES -->
 <section class="features" id="features">
   <div class="container">
     <div class="fade-up">
       <div class="section-label">Platform</div>
-      <h2 class="section-title">Everything you need to run your night</h2>
-      <p class="section-subtitle">Stop juggling five apps, three group chats, and a spreadsheet. Nocturn brings it all together.</p>
+      <h2 class="section-title">One platform. Every part of the night.</h2>
+      <p class="section-subtitle">Stop duct-taping five apps together. Nocturn gives your collective a single command center.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card fade-up">
-        <div class="feature-icon purple">
-          <svg width="24" height="24" fill="none" stroke="#9B5FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <h3>Agentic Automation</h3>
-        <p>AI agents handle your repetitive work — guest list management, promo follow-ups, post-event reconciliation. You focus on the experience.</p>
+        <span class="feature-emoji">🤖</span>
+        <h3>AI-Powered Workflows</h3>
+        <p>Intelligent agents handle guest lists, promo scheduling, follow-ups, and post-event reporting — automatically. You set the rules, they run the plays.</p>
+      </div>
+      <div class="feature-card fade-up delay-1">
+        <span class="feature-emoji">🎟️</span>
+        <h3>Ticketing & Door</h3>
+        <p>Beautiful event pages, flexible ticket tiers, QR check-in, and real-time door analytics. Built for the way nightlife ticketing actually works.</p>
+      </div>
+      <div class="feature-card fade-up delay-2">
+        <span class="feature-emoji">💳</span>
+        <h3>Payments & Splits</h3>
+        <p>Revenue flows in, splits automatically, and hits your team's accounts — no chasing. Instant payouts, transparent ledger, full financial history.</p>
       </div>
       <div class="feature-card fade-up">
-        <div class="feature-icon teal">
-          <svg width="24" height="24" fill="none" stroke="#00D4AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-        </div>
-        <h3>Ticketing & Payments</h3>
-        <p>Sell tickets, manage door lists, and split revenue automatically. Instant payouts to your team, no chasing payments.</p>
+        <span class="feature-emoji">👥</span>
+        <h3>Collective HQ</h3>
+        <p>Your whole crew in one workspace. Shared contacts, event history, role-based access, and internal comms — organized and always in sync.</p>
       </div>
-      <div class="feature-card fade-up">
-        <div class="feature-icon coral">
-          <svg width="24" height="24" fill="none" stroke="#FF6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>Collective Command Center</h3>
-        <p>One dashboard for your whole crew. Events, finances, contacts, and communications — organized and accessible to everyone.</p>
+      <div class="feature-card fade-up delay-1">
+        <span class="feature-emoji">📊</span>
+        <h3>Insights & Analytics</h3>
+        <p>See what's working across events, track fan engagement, compare promo performance, and forecast revenue — all in one dashboard.</p>
+      </div>
+      <div class="feature-card fade-up delay-2">
+        <span class="feature-emoji">🔗</span>
+        <h3>Venue Connections</h3>
+        <p>Streamline the collective-venue relationship. Share settlement reports, coordinate bookings, and build a track record venues trust.</p>
       </div>
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
 
 <!-- HOW IT WORKS -->
 <section class="how-it-works">
   <div class="container">
     <div class="fade-up">
       <div class="section-label">How It Works</div>
-      <h2 class="section-title">From idea to after-party in three steps</h2>
+      <h2 class="section-title">From idea to after-party</h2>
+      <p class="section-subtitle">Three steps to run your night without the spreadsheet chaos.</p>
     </div>
     <div class="steps">
       <div class="step fade-up">
         <div class="step-number">01</div>
         <h3>Set up your collective</h3>
-        <p>Create your team workspace, invite collaborators, connect your socials. Takes five minutes.</p>
+        <p>Create your team workspace in minutes. Invite your crew, assign roles, and connect your accounts. Your command center is ready.</p>
       </div>
-      <div class="step fade-up">
+      <div class="step fade-up delay-1">
         <div class="step-number">02</div>
-        <h3>Plan and launch your event</h3>
-        <p>Build your event page, set ticket tiers, and let Nocturn's AI agents handle promo, guest lists, and door logistics.</p>
+        <h3>Launch your event</h3>
+        <p>Build your event page, set ticket tiers and pricing, and activate AI agents to handle promo outreach, guest list management, and day-of logistics.</p>
       </div>
-      <div class="step fade-up">
+      <div class="step fade-up delay-2">
         <div class="step-number">03</div>
-        <h3>Get paid, automatically</h3>
-        <p>Revenue splits, payouts, and financial reporting happen on their own. Wake up to money in your account, not a pile of receipts.</p>
+        <h3>Get paid, review, repeat</h3>
+        <p>Revenue splits and payouts happen automatically after the event. Review your analytics, see what worked, and carry those insights into the next one.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BUILT FOR -->
-<section class="built-for">
+<div class="divider"></div>
+
+<!-- AUDIENCE -->
+<section class="audience">
   <div class="container">
     <div class="fade-up">
       <div class="section-label">Built For</div>
-      <h2 class="section-title">Made for the people who make the night happen</h2>
+      <h2 class="section-title">For the people who make the night happen</h2>
       <p class="section-subtitle">Whether you're a crew of three or a full production team, Nocturn scales with you.</p>
     </div>
-    <div class="built-for-grid">
-      <div class="built-for-card fade-up">
-        <div class="emoji">🎧</div>
+    <div class="audience-grid">
+      <div class="audience-card fade-up">
+        <span class="emoji">🎧</span>
         <h3>Nightlife Collectives</h3>
-        <p>Groups of promoters, DJs, and creatives who throw events together. Stop splitting revenue on Venmo and tracking RSVPs in Notes.</p>
+        <p>Groups of promoters, DJs, and creatives throwing events together. Replace the Venmo requests and Notes app RSVPs with real infrastructure.</p>
       </div>
-      <div class="built-for-card fade-up">
-        <div class="emoji">🎤</div>
+      <div class="audience-card fade-up delay-1">
+        <span class="emoji">🎤</span>
         <h3>Independent Promoters</h3>
-        <p>Solo operators running multiple nights across venues. One place to manage all your events, contacts, and cash flow.</p>
+        <p>Solo operators running multiple nights across venues. Manage all your events, contacts, and finances in one place instead of ten.</p>
       </div>
-      <div class="built-for-card fade-up">
-        <div class="emoji">🏙️</div>
+      <div class="audience-card fade-up">
+        <span class="emoji">🏙️</span>
         <h3>Venue Operators</h3>
         <p>Clubs and bars working with multiple promoter groups. Streamline bookings, settle payments, and track performance across all your nights.</p>
       </div>
-      <div class="built-for-card fade-up">
-        <div class="emoji">🎵</div>
+      <div class="audience-card fade-up delay-1">
+        <span class="emoji">🎵</span>
         <h3>Artists & DJs</h3>
-        <p>Manage your bookings, build your audience, and monetize your fanbase — all connected to the ecosystem where your shows happen.</p>
+        <p>Manage bookings, build your audience, and grow your revenue — connected to the ecosystem where your shows actually happen.</p>
       </div>
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="container">
+    <div class="quote-block fade-up">
+      <p>"Posh is for fans. Venue software is for buildings. Nocturn is for operators — the people who actually make the night happen."</p>
+      <cite>— The Nocturn thesis</cite>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
 
 <!-- FINAL CTA -->
 <section class="final-cta" id="waitlist">
   <div class="container fade-up">
     <div class="section-label">Early Access</div>
     <h2 class="section-title">Be first to run your night on Nocturn</h2>
-    <p class="section-subtitle">We're onboarding founding collectives this summer. Get early access and help shape the platform.</p>
+    <p class="section-subtitle">We're onboarding founding collectives this summer. Get early access and help shape the platform from day one.</p>
     <form class="waitlist-form" id="waitlist-form-footer">
-      <input type="email" placeholder="Enter your email" required>
+      <input type="email" placeholder="your@email.com" required>
       <button type="submit">Join Waitlist</button>
     </form>
-    <p class="form-note">Launching Summer 2026 in Toronto</p>
-    <div class="form-success" id="success-footer">You're on the list. We'll be in touch soon.</div>
+    <p class="form-note">Launching Summer 2026 — Toronto first, then everywhere</p>
+    <div class="form-success" id="success-footer">You're on the list. We'll reach out soon.</div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <p style="margin-bottom: 8px;">
-      <a href="#" class="logo" style="font-size:1.1rem;">nocturn<span style="color:var(--purple-light)">.</span></a>
-    </p>
-    <p>&copy; 2026 Nocturn. Built in Toronto.</p>
+    <div class="footer-inner">
+      <p>&copy; 2026 Nocturn Inc. Built in Toronto 🇨🇦</p>
+      <div class="footer-links">
+        <a href="mailto:shawn@trynocturn.com">Contact</a>
+      </div>
+    </div>
   </div>
 </footer>
 
 <script>
-// Nav scroll effect
+// Nav scroll
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 });
 
-// Scroll-triggered animations
+// Scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// Waitlist form handling
+// Waitlist forms
 document.querySelectorAll('.waitlist-form').forEach(form => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = form.querySelector('input').value;
-    // For Squarespace: replace this with Squarespace form action
-    // For standalone: POST to your endpoint
     console.log('Waitlist signup:', email);
-
     form.style.display = 'none';
     const successId = form.id === 'waitlist-form-hero' ? 'success-hero' : 'success-footer';
     document.getElementById(successId).style.display = 'block';
-
-    // Hide the form note too
     const note = form.nextElementSibling;
-    if (note && note.classList.contains('form-note')) {
-      note.style.display = 'none';
-    }
+    if (note && note.classList.contains('form-note')) note.style.display = 'none';
   });
 });
 </script>
