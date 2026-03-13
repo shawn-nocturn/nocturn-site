@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nocturn — The Operating System for Nightlife</title>
-<meta name="description" content="Run your collective, sell tickets, get paid. Nocturn is the all-in-one operating system for nightlife collectives and promoters.">
+<title>Nocturn — The Agentic Work OS for Nightlife</title>
+<meta name="description" content="Run your collective, sell tickets, get paid. Nocturn is the agentic work OS for nightlife collectives and promoters.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌙</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -180,7 +180,7 @@ nav.scrolled {
   color: var(--text-primary);
 }
 .hero h1 .gradient {
-  background: linear-gradient(135deg, var(--purple-glow) 0%, var(--teal) 100%);
+  background: linear-gradient(135deg, var(--purple-glow) 0%, var(--teal-light) 50%, var(--teal) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -251,6 +251,38 @@ nav.scrolled {
   font-weight: 500;
 }
 
+/* --- STATS BAR --- */
+.stats-bar { padding: 56px 0; }
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+.stat-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--purple-glow), var(--teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; gap: 24px; }
+  .stat-number { font-size: 2.2rem; }
+}
+
 /* --- DIVIDER --- */
 .divider {
   height: 1px;
@@ -315,6 +347,7 @@ nav.scrolled {
 .story-stat-icon.purple-bg { background: rgba(123,47,247,0.12); }
 .story-stat-icon.teal-bg { background: rgba(45,212,191,0.12); }
 .story-stat-icon.coral-bg { background: rgba(251,113,133,0.12); }
+.story-stat-icon.amber-bg { background: rgba(251,191,36,0.12); }
 .story-stat-text h4 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1rem;
@@ -334,6 +367,7 @@ nav.scrolled {
   padding: 100px 0;
 }
 .section-label {
+  font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -367,14 +401,16 @@ nav.scrolled {
   padding: 32px 28px;
   background: var(--bg-card);
   border: 1px solid var(--border);
+  border-top: 2px solid transparent;
   border-radius: 14px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .feature-card:hover {
   border-color: var(--border-hover);
+  border-top-color: var(--purple);
   transform: translateY(-3px);
   background: var(--bg-card-hover);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.25), 0 0 40px rgba(123,47,247,0.06);
 }
 .feature-emoji {
   font-size: 1.8rem;
@@ -395,6 +431,94 @@ nav.scrolled {
   line-height: 1.65;
 }
 
+/* --- AGENTS --- */
+.agents {
+  padding: 100px 0;
+}
+.agents-intro {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 580px;
+  margin-bottom: 56px;
+}
+.agents-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.agent-card {
+  padding: 32px 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--purple);
+  border-radius: 4px 14px 14px 4px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.agent-card:hover {
+  border-color: var(--border-hover);
+  border-left-color: var(--purple-light);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25), 0 0 30px rgba(123,47,247,0.05);
+}
+.agent-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.agent-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  background: rgba(123,47,247,0.1);
+}
+.agent-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+.agent-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+.agent-card .agent-highlight {
+  font-size: 0.8rem;
+  color: var(--purple-glow);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.agent-card .agent-highlight::before {
+  content: '→';
+  color: var(--purple-light);
+}
+.agent-card .agent-highlight + .agent-highlight {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-style: italic;
+  font-weight: 400;
+  margin-top: 4px;
+}
+.agent-card .agent-highlight + .agent-highlight::before {
+  color: var(--text-muted);
+  font-style: normal;
+}
+@media (max-width: 768px) {
+  .agents-grid { grid-template-columns: 1fr; }
+}
+
 /* --- HOW IT WORKS --- */
 .how-it-works {
   padding: 100px 0;
@@ -408,9 +532,9 @@ nav.scrolled {
 .step { position: relative; }
 .step-number {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 800;
-  background: linear-gradient(180deg, rgba(123,47,247,0.2) 0%, rgba(123,47,247,0.03) 100%);
+  background: linear-gradient(180deg, var(--purple-light) 0%, rgba(123,47,247,0.25) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -450,6 +574,7 @@ nav.scrolled {
 .audience-card:hover {
   border-color: var(--border-hover);
   background: var(--bg-card-hover);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
 .audience-card .emoji {
   font-size: 1.8rem;
@@ -477,16 +602,17 @@ nav.scrolled {
 .quote-block {
   max-width: 640px;
   margin: 0 auto;
-  padding: 48px 40px;
-  background: linear-gradient(135deg, rgba(123,47,247,0.06) 0%, rgba(45,212,191,0.04) 100%);
+  padding: 44px 40px 44px 36px;
+  background: linear-gradient(135deg, rgba(123,47,247,0.06) 0%, rgba(45,212,191,0.03) 100%);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-left: 3px solid var(--purple);
+  border-radius: 4px 16px 16px 4px;
 }
 .quote-block p {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.55;
   letter-spacing: -0.02em;
   color: var(--text-primary);
   margin-bottom: 20px;
@@ -597,8 +723,8 @@ footer a:hover { color: var(--purple-light); }
         <div class="hero-badge-dot"></div>
         Launching Summer 2026
       </div>
-      <h1>Run your night.<br><span class="gradient">All of it.</span></h1>
-      <p class="hero-sub">Nocturn is the operating system for nightlife collectives. Plan events, sell tickets, split revenue, and grow your crew — with AI that handles the busywork so you can focus on the experience.</p>
+      <h1>You run the night.<br><span class="gradient">Nocturn runs the business.</span></h1>
+      <p class="hero-sub">The agentic work OS for nightlife collectives. Plan events, sell tickets, split revenue, and grow your crew — with AI that handles the busywork so you can focus on the experience.</p>
       <form class="waitlist-form" id="waitlist-form-hero">
         <input type="email" placeholder="your@email.com" required>
         <button type="submit">Join Waitlist</button>
@@ -611,37 +737,66 @@ footer a:hover { color: var(--purple-light); }
 
 <div class="divider"></div>
 
+<!-- STATS -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid fade-up">
+      <div>
+        <div class="stat-number">$214B</div>
+        <div class="stat-label">Global Nightlife Economy</div>
+      </div>
+      <div>
+        <div class="stat-number">$18B</div>
+        <div class="stat-label">Addressable Market</div>
+      </div>
+      <div>
+        <div class="stat-number" style="font-size: 3.4rem;">0</div>
+        <div class="stat-label">Platforms Built for Operators</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- THE STORY -->
 <section class="story">
   <div class="container">
     <div class="story-grid">
       <div class="story-text fade-up">
         <div class="section-label">The Problem</div>
-        <h2>Nightlife runs on chaos. It doesn't have to.</h2>
-        <p>Every weekend, thousands of collectives — crews of promoters, DJs, and creatives — pull off incredible events. But behind the scenes, it's a mess of spreadsheets, group chats, cash apps, and manual hustle.</p>
-        <p>There's no tool built for how nightlife actually works. Event platforms serve fans. Venue software serves buildings. Nobody serves the operators — the people who actually make the night happen.</p>
-        <p>That's what Nocturn is for.</p>
+        <h2>You pulled off last Saturday. But at what cost?</h2>
+        <p>You listed your event on EDM Train, Eventbrite, Resident Advisor, and every other platform you could find. Split revenue with the venue, two DJs, and your co-promoter — over e-transfer and cash apps. Tracked expenses in a Notes app. Built the flyer at 1am. Answered dozens of DMs about door prices. And on Monday, you still don't know if you made money.</p>
+        <p>This isn't a workflow problem. It's a survival problem. The operators who build nightlife are running real businesses on tools designed for none of this.</p>
+        <p>Nocturn replaces the chaos with one intelligent platform — so the same energy you put into the night goes into building something that lasts.</p>
       </div>
       <div class="story-visual fade-up delay-1">
         <div class="story-stat">
           <div class="story-stat-icon purple-bg">📱</div>
           <div class="story-stat-text">
-            <h4>5+ apps per event</h4>
-            <p>Promoters juggle ticketing, payments, messaging, docs, and social — none of them talk to each other</p>
+            <h4>5+ apps, zero integration</h4>
+            <p>List on EDM Train and RA, ticket on Eventbrite, split payments over cash apps, track in a spreadsheet, coordinate in group chats, design in Canva — none of it connected</p>
           </div>
         </div>
         <div class="story-stat">
           <div class="story-stat-icon teal-bg">💸</div>
           <div class="story-stat-text">
-            <h4>Revenue gets lost</h4>
-            <p>Manual splits, late payments, and no financial visibility cost collectives thousands each year</p>
+            <h4>Money disappears in the gaps</h4>
+            <p>No P&L per event. No clean books. No idea if last night was actually profitable until weeks later — if ever</p>
           </div>
         </div>
         <div class="story-stat">
           <div class="story-stat-icon coral-bg">⏳</div>
           <div class="story-stat-text">
-            <h4>20+ hours per event</h4>
-            <p>Admin work that could be automated eats into time better spent on creative and community</p>
+            <h4>20+ hours of admin per event</h4>
+            <p>Guest lists, promo scheduling, door coordination, settlement reports — the work that burns operators out isn't the night, it's everything around it</p>
+          </div>
+        </div>
+        <div class="story-stat">
+          <div class="story-stat-icon amber-bg">📊</div>
+          <div class="story-stat-text">
+            <h4>Growing blind, not growing smart</h4>
+            <p>No audience data, no performance trends, no idea which promos actually drive sales — you're scaling on gut feel instead of insights</p>
           </div>
         </div>
       </div>
@@ -696,6 +851,57 @@ footer a:hover { color: var(--purple-light); }
 
 <div class="divider"></div>
 
+<!-- AGENTS -->
+<section class="agents">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">AI Agents</div>
+      <h2 class="section-title">Four agents. One crew that never sleeps.</h2>
+      <p class="agents-intro">These aren't chatbots. They're autonomous AI agents that do the work — so you can stop managing spreadsheets and start building your night. You set the vision. They execute.</p>
+    </div>
+    <div class="agents-grid">
+      <div class="agent-card fade-up">
+        <div class="agent-card-header">
+          <div class="agent-icon">💰</div>
+          <h3>Finance Agent</h3>
+        </div>
+        <p>Your entire back office, automated. Handles incorporation paperwork, tax prep, bookkeeping, P&L per event, cash flow forecasting, anomaly detection, and revenue splits — so you always know where your money is and where it's going.</p>
+        <div class="agent-highlight">Incorporation, taxes, books, forecasting — handled</div>
+        <div class="agent-highlight">Coming: event-specific financing and instant payouts</div>
+      </div>
+      <div class="agent-card fade-up delay-1">
+        <div class="agent-card-header">
+          <div class="agent-icon">📣</div>
+          <h3>Marketing Agent</h3>
+        </div>
+        <p>Builds and maintains your website, manages your brand identity and voice, creates event flyers from your brand kit, runs your Instagram and social channels, sends email campaigns, and A/B tests messaging — end to end.</p>
+        <div class="agent-highlight">Website, brand, social, and campaigns — always on</div>
+        <div class="agent-highlight">Coming: auto-generated recap content and fan retargeting</div>
+      </div>
+      <div class="agent-card fade-up">
+        <div class="agent-card-header">
+          <div class="agent-icon">📈</div>
+          <h3>Growth Agent</h3>
+        </div>
+        <p>Optimizes your SEO so the right people find you. Analyzes audience data, recommends pricing strategies, identifies cross-promotion opportunities with other collectives, and surfaces booking insights based on what's working.</p>
+        <div class="agent-highlight">SEO, pricing, and audience intelligence — dialed in</div>
+        <div class="agent-highlight">Coming: network-powered recommendations across the platform</div>
+      </div>
+      <div class="agent-card fade-up delay-1">
+        <div class="agent-card-header">
+          <div class="agent-icon">⚙️</div>
+          <h3>Operations Agent</h3>
+        </div>
+        <p>Keeps the business side tight. Manages booking logistics, venue coordination, staff scheduling, risk and compliance, vendor contracts, promoter settlements, and post-event reporting — the backbone that lets you focus on the night.</p>
+        <div class="agent-highlight">Risk, compliance, contracts, and logistics — covered</div>
+        <div class="agent-highlight">Coming: predictive staffing and automated venue matching</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- HOW IT WORKS -->
 <section class="how-it-works">
   <div class="container">
@@ -738,7 +944,7 @@ footer a:hover { color: var(--purple-light); }
       <div class="audience-card fade-up">
         <span class="emoji">🎧</span>
         <h3>Nightlife Collectives</h3>
-        <p>Groups of promoters, DJs, and creatives throwing events together. Replace the Venmo requests and Notes app RSVPs with real infrastructure.</p>
+        <p>Groups of promoters, DJs, and creatives throwing events together. Replace the payment requests and Notes app RSVPs with real infrastructure.</p>
       </div>
       <div class="audience-card fade-up delay-1">
         <span class="emoji">🎤</span>
@@ -751,9 +957,9 @@ footer a:hover { color: var(--purple-light); }
         <p>Clubs and bars working with multiple promoter groups. Streamline bookings, settle payments, and track performance across all your nights.</p>
       </div>
       <div class="audience-card fade-up delay-1">
-        <span class="emoji">🎵</span>
-        <h3>Artists & DJs</h3>
-        <p>Manage bookings, build your audience, and grow your revenue — connected to the ecosystem where your shows actually happen.</p>
+        <span class="emoji">🎯</span>
+        <h3>Event Teams & Staff</h3>
+        <p>Door staff, sound techs, bar managers — everyone involved in making the night run. One platform to coordinate, communicate, and get paid on time.</p>
       </div>
     </div>
   </div>
@@ -765,8 +971,8 @@ footer a:hover { color: var(--purple-light); }
 <section class="quote-section">
   <div class="container">
     <div class="quote-block fade-up">
-      <p>"Posh is for fans. Venue software is for buildings. Nocturn is for operators — the people who actually make the night happen."</p>
-      <cite>— The Nocturn thesis</cite>
+      <p>"We believe the people who create nightlife deserve the same caliber of tools that power every other industry. One platform, zero busywork, infinite nights."</p>
+      <cite>— Shawn Qanun, CEO</cite>
     </div>
   </div>
 </section>
@@ -792,7 +998,10 @@ footer a:hover { color: var(--purple-light); }
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <p>&copy; 2026 Nocturn Inc. Built in Toronto 🇨🇦</p>
+      <div>
+        <p style="margin-bottom: 4px;">&copy; 2026 Nocturn Technologies Inc.</p>
+        <p style="font-size: 0.72rem; color: var(--text-muted);">The Agentic Work OS for Nightlife &mdash; Built in Toronto 🇨🇦</p>
+      </div>
       <div class="footer-links">
         <a href="mailto:shawn@trynocturn.com">Contact</a>
       </div>
