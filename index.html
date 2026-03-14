@@ -638,6 +638,18 @@ nav.scrolled {
   font-style: normal;
   font-size: 0.85rem;
   color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.quote-headshot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--purple);
 }
 
 /* --- FINAL CTA --- */
@@ -989,7 +1001,7 @@ footer a:hover { color: var(--purple-light); }
   <div class="container">
     <div class="quote-block fade-up">
       <p>"We believe the people who create nightlife deserve the same caliber of tools that power every other industry. One platform, zero busywork, infinite nights."</p>
-      <cite>— Shawn Qanun, CEO</cite>
+      <cite><img src="shawn-qanun.png" alt="Shawn Qanun" class="quote-headshot"> — Shawn Qanun, CEO</cite>
     </div>
   </div>
 </section>
