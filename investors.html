@@ -533,11 +533,66 @@ footer {
   font-size: 0.72rem; color: var(--text-muted);
 }
 
+/* --- MOCKUP STYLES --- */
+.mockup-container {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 48px;
+}
+.mockup-item { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.mockup-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; }
+.phone-mockup { width: 280px; height: 580px; background: var(--bg-secondary); border-radius: 48px; border: 8px solid var(--bg-secondary); box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.1); position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.phone-mockup::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 150px; height: 28px; background: var(--bg-secondary); border-radius: 0 0 28px 28px; z-index: 10; }
+.phone-mockup::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 24px; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.2)); border-radius: 20px; z-index: 5; pointer-events: none; }
+.phone-screen { flex: 1; background: var(--bg-primary); border-radius: 40px; margin: 1px; overflow: hidden; display: flex; flex-direction: column; padding-top: 28px; }
+.phone-status { height: 20px; display: flex; justify-content: space-between; align-items: center; padding: 0 16px; font-size: 0.65rem; color: var(--text-primary); flex-shrink: 0; }
+.phone-content { flex: 1; overflow: hidden; display: flex; flex-direction: column; padding: 16px 12px; gap: 12px; }
+.app-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; padding: 0 4px; }
+.app-logo { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+.moon-icon { width: 18px; height: 18px; border-radius: 50%; background: var(--amber); position: relative; display: inline-block; }
+.moon-icon::after { content: ''; position: absolute; width: 12px; height: 12px; background: var(--bg-primary); border-radius: 50%; top: 2px; right: 2px; }
+.app-location { font-size: 0.7rem; color: var(--text-muted); padding: 0 4px; margin-bottom: 12px; }
+.mock-event-card { background: linear-gradient(135deg, rgba(180,83,255,0.2), rgba(45,212,191,0.15)); border: 1px solid rgba(123,47,247,0.3); border-radius: 16px; padding: 14px; flex-shrink: 0; }
+.mock-event-card .event-title { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.mock-event-card .event-venue { font-size: 0.7rem; color: var(--text-secondary); margin-bottom: 6px; }
+.mock-event-card .event-time { font-size: 0.7rem; color: var(--teal); font-weight: 500; }
+.event-activity { background: rgba(45,212,191,0.08); border: 1px solid rgba(45,212,191,0.2); border-radius: 12px; padding: 10px; margin-top: 12px; font-size: 0.7rem; color: var(--text-secondary); }
+.activity-line { line-height: 1.4; }
+.badge-notification { background: rgba(251,113,133,0.1); border: 1px solid rgba(251,113,133,0.2); border-radius: 12px; padding: 10px; font-size: 0.7rem; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; }
+.phone-nav { display: flex; justify-content: space-around; align-items: center; padding: 12px 0; border-top: 1px solid var(--border); font-size: 0.6rem; color: var(--text-muted); flex-shrink: 0; }
+.nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 4px 8px; }
+.nav-item.active { color: var(--teal); }
+.nav-icon { font-size: 1rem; }
+.dashboard-mockup { width: 380px; height: 420px; background: var(--bg-secondary); border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.browser-chrome { background: var(--bg-secondary); padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.browser-dots { display: flex; gap: 6px; }
+.browser-dot { width: 8px; height: 8px; border-radius: 50%; }
+.browser-dot.red { background: #FB7185; }
+.browser-dot.yellow { background: #FBBF24; }
+.browser-dot.green { background: #10B981; }
+.browser-address { flex: 1; background: var(--bg-card); border-radius: 6px; padding: 6px 12px; font-size: 0.65rem; color: var(--text-muted); margin-left: 8px; }
+.dashboard-content { flex: 1; background: var(--bg-primary); overflow: hidden; display: flex; flex-direction: column; padding: 20px; gap: 16px; }
+.dashboard-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.dashboard-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
+.dashboard-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.stat-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 4px; }
+.stat-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; font-weight: 500; letter-spacing: 0.04em; }
+.stat-value { font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--text-primary); }
+.stat-value.purple { color: var(--purple-light); }
+.stat-value.teal { color: var(--teal); }
+.stat-value.coral { color: var(--coral); }
+.chart-area { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; height: 80px; display: flex; align-items: flex-end; gap: 4px; justify-content: space-around; }
+.chart-bar { width: 24%; background: linear-gradient(180deg, var(--purple-light), var(--purple)); border-radius: 4px 4px 0 0; }
+.bar-1 { height: 30%; } .bar-2 { height: 50%; } .bar-3 { height: 45%; } .bar-4 { height: 75%; } .bar-5 { height: 60%; } .bar-6 { height: 90%; } .bar-7 { height: 70%; }
+.agent-card-mini { background: rgba(123,47,247,0.1); border: 1px solid rgba(123,47,247,0.2); border-radius: 8px; padding: 10px; font-size: 0.7rem; color: var(--text-secondary); }
+.agent-card-mini strong { color: var(--text-primary); display: block; margin-bottom: 4px; }
+
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
   .problem-stats { grid-template-columns: 1fr; }
   .solution-grid { grid-template-columns: 1fr; }
   .agents-grid { grid-template-columns: 1fr; }
+  .mockup-container { grid-template-columns: 1fr; gap: 48px; }
+  .phone-mockup { width: 240px; height: 500px; border-radius: 40px; margin: 0 auto; }
+  .dashboard-mockup { width: 320px; height: 360px; margin: 0 auto; }
   .market-points { grid-template-columns: 1fr; }
   .pattern-grid { grid-template-columns: 1fr; }
   .comp-table { font-size: 0.78rem; }
@@ -851,8 +906,8 @@ footer {
           <div class="flywheel-line"></div>
         </div>
         <div class="flywheel-content">
-          <h4 style="color: var(--teal);">Attendees</h4>
-          <p>Fans buy tickets, discover events, follow collectives and artists. The Nocturn attendee app becomes the nightlife companion — personalized event discovery, taste-based recommendations, social groups, loyalty rewards, and a nightlife graph that learns what you love. Think Spotify Wrapped, but for your nights out. As the network grows, Nocturn becomes the place people go to decide what they're doing this weekend.</p>
+          <h4 style="color: var(--teal);">Attendees — The Music Super App</h4>
+          <p>More than a ticketing app — Nocturn is the <strong>community-first nightlife super app</strong>. Fans discover events through AI-powered music and vibe recommendations, connect with like-minded people through event threads and group chats, and build a living nightlife identity. Earn badges for loyalty — "Superfan," "First In Line," "100 Nights Out" — with gamified milestones that unlock perks, VIP access, and exclusive drops. Get recommended to crews, collectives, and scenes based on your taste graph. A built-in <strong>referral engine</strong> rewards fans with free tickets, discounts, and priority access for every friend they bring into the ecosystem. Think Spotify Wrapped meets Discord communities meets Strava streaks — but for your nights out. As the network grows, Nocturn becomes <em>the</em> place people open to decide what they're doing this weekend.</p>
         </div>
       </div>
 
@@ -949,6 +1004,104 @@ footer {
           <span class="agent-cap">Post-Event Reports</span>
         </div>
         <div class="agent-evolution">Future: predictive staffing, automated venue matching, insurance integrations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- THE EXPERIENCE / APP MOCKUPS -->
+<section>
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">The Experience</div>
+      <h2 class="section-title">Built for every side of the night</h2>
+      <p class="section-desc">
+        Nocturn serves three audiences with unified tools. Attendees discover events and build community.
+        Operators run their business end-to-end. All powered by AI agents that never sleep.
+      </p>
+    </div>
+
+    <div class="mockup-container fade-up delay-1">
+      <!-- PHONE MOCKUP: ATTENDEE APP -->
+      <div class="mockup-item">
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <div class="phone-status">
+              <span style="font-weight:500;">9:41</span>
+              <div style="display:flex;gap:4px;"><span>📶</span><span>🔋</span></div>
+            </div>
+            <div class="phone-content">
+              <div class="app-header">
+                <div class="moon-icon"></div>
+                <div class="app-logo">nocturn</div>
+              </div>
+              <div class="app-location">This Weekend in Toronto</div>
+              <div class="mock-event-card">
+                <div class="event-title">No Sleep Club presents: SUNSET RITUAL</div>
+                <div class="event-venue">Rebel Nightclub</div>
+                <div class="event-time">Sat Mar 14 · 10PM</div>
+                <div class="event-activity">
+                  <div class="activity-line">👥 12 people going · 3 threads active</div>
+                  <div class="activity-line">🎟️ Refer a friend → free drink ticket</div>
+                </div>
+              </div>
+              <div class="badge-notification">
+                <span style="font-size:0.85rem;">🏅</span>
+                <span><strong style="color:var(--amber);">Superfan</strong> badge earned · 50 events!</span>
+              </div>
+            </div>
+            <div class="phone-nav">
+              <div class="nav-item"><div class="nav-icon">🏠</div><span>Home</span></div>
+              <div class="nav-item"><div class="nav-icon">🔍</div><span>Discover</span></div>
+              <div class="nav-item"><div class="nav-icon">🎫</div><span>Tickets</span></div>
+              <div class="nav-item active"><div class="nav-icon">👥</div><span>Community</span></div>
+              <div class="nav-item"><div class="nav-icon">👤</div><span>Profile</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="mockup-label">Attendee App</div>
+      </div>
+
+      <!-- DASHBOARD MOCKUP: OPERATOR -->
+      <div class="mockup-item">
+        <div class="dashboard-mockup">
+          <div class="browser-chrome">
+            <div class="browser-dots">
+              <div class="browser-dot red"></div>
+              <div class="browser-dot yellow"></div>
+              <div class="browser-dot green"></div>
+            </div>
+            <div class="browser-address">nocturn.app/dashboard</div>
+          </div>
+          <div class="dashboard-content">
+            <div class="dashboard-header">
+              <span>📊</span>
+              <div class="dashboard-title">No Sleep Club Dashboard</div>
+            </div>
+            <div class="dashboard-stats">
+              <div class="stat-box"><div class="stat-label">Events</div><div class="stat-value purple">12</div></div>
+              <div class="stat-box"><div class="stat-label">Revenue</div><div class="stat-value teal">$48.2K</div></div>
+              <div class="stat-box"><div class="stat-label">Tickets</div><div class="stat-value coral">3,847</div></div>
+              <div class="stat-box"><div class="stat-label">Capacity</div><div class="stat-value">94%</div></div>
+            </div>
+            <div class="chart-area">
+              <div class="chart-bar bar-1"></div>
+              <div class="chart-bar bar-2"></div>
+              <div class="chart-bar bar-3"></div>
+              <div class="chart-bar bar-4"></div>
+              <div class="chart-bar bar-5"></div>
+              <div class="chart-bar bar-6"></div>
+              <div class="chart-bar bar-7"></div>
+            </div>
+            <div class="agent-card-mini">
+              <strong>🤖 Finance Agent</strong>
+              Settlement for SUNSET RITUAL ready — $12,400 split across 3 parties. Review →
+            </div>
+          </div>
+        </div>
+        <div class="mockup-label">Operator Dashboard</div>
       </div>
     </div>
   </div>
