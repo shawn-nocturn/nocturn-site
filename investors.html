@@ -456,6 +456,13 @@ nav.scrolled {
 }
 
 /* --- FOUNDER --- */
+.founder-headshot {
+  width: 140px; height: 140px; border-radius: 50%;
+  object-fit: cover; object-position: center top;
+  border: 3px solid var(--purple);
+  box-shadow: 0 0 30px rgba(168,85,247,0.3);
+  flex-shrink: 0;
+}
 .founder-section {
   display: flex; gap: 48px; align-items: center;
 }
@@ -535,7 +542,8 @@ footer {
   .pattern-grid { grid-template-columns: 1fr; }
   .comp-table { font-size: 0.78rem; }
   .comp-table th, .comp-table td { padding: 10px 12px; }
-  .founder-section { flex-direction: column; }
+  .founder-section { flex-direction: column; text-align: center; }
+  .founder-headshot { width: 120px; height: 120px; }
   .hero { padding: 120px 0 60px; }
   .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
   .tam-bar.som { min-width: 120px; }
@@ -1345,6 +1353,7 @@ footer {
     </div>
     <div class="fade-up delay-1" style="margin-bottom: 40px;">
       <div class="founder-section">
+        <img src="shawn-qanun.png" alt="Shawn Qanun" class="founder-headshot">
         <div class="founder-info">
           <h3>Shawn Qanun</h3>
           <div class="founder-role">Founder & CEO</div>
