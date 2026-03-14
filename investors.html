@@ -525,6 +525,87 @@ footer {
   .roadmap::before { left: 23px; }
 }
 
+/* --- REVENUE MODEL --- */
+.revenue-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  margin-top: 48px;
+}
+.revenue-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px; text-align: center;
+  transition: all 0.3s ease; position: relative; overflow: hidden;
+}
+.revenue-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+.revenue-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.revenue-card.r1::before { background: var(--purple); }
+.revenue-card.r2::before { background: var(--teal); }
+.revenue-card.r3::before { background: var(--coral); }
+.revenue-card.r4::before { background: var(--amber); }
+.revenue-icon { font-size: 1.8rem; margin-bottom: 12px; }
+.revenue-name {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1rem;
+  font-weight: 600; margin-bottom: 6px;
+}
+.revenue-desc {
+  font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;
+  margin-bottom: 16px;
+}
+.revenue-model-tag {
+  font-size: 0.7rem; font-weight: 600; padding: 4px 10px;
+  border-radius: 100px; background: var(--bg-secondary);
+  color: var(--text-secondary); display: inline-block;
+}
+.valuation-block {
+  background: var(--bg-card); border: 1px solid rgba(123,47,247,0.2);
+  border-radius: 16px; padding: 40px; text-align: center;
+  margin-top: 48px;
+  background: linear-gradient(135deg, rgba(123,47,247,0.04), rgba(45,212,191,0.04));
+}
+.valuation-block h3 {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem;
+  font-weight: 700; margin-bottom: 12px;
+}
+.valuation-block p {
+  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;
+  max-width: 640px; margin: 0 auto;
+}
+.valuation-highlight {
+  color: var(--purple-light); font-weight: 600;
+}
+
+/* --- WHAT WE NEED --- */
+.need-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  margin-top: 48px;
+}
+.need-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 32px; transition: all 0.3s ease;
+}
+.need-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+.need-card.highlight-card {
+  border-color: rgba(123,47,247,0.3);
+  background: linear-gradient(135deg, rgba(123,47,247,0.06), var(--bg-card));
+  grid-column: 1 / -1;
+}
+.need-icon { font-size: 1.6rem; margin-bottom: 12px; }
+.need-card h4 {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem;
+  font-weight: 600; margin-bottom: 8px;
+}
+.need-card p {
+  font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;
+}
+
+/* --- RESPONSIVE ADDITIONS --- */
+@media (max-width: 768px) {
+  .revenue-grid { grid-template-columns: 1fr 1fr; }
+  .need-grid { grid-template-columns: 1fr; }
+}
+
 /* --- ANIMATIONS --- */
 .fade-up {
   opacity: 0; transform: translateY(24px);
@@ -744,7 +825,7 @@ footer {
         </div>
         <div class="flywheel-content">
           <h4 style="color: var(--teal);">Attendees</h4>
-          <p>Fans buy tickets, discover events, follow collectives. As the network grows, Nocturn becomes the discovery layer — cross-promoting events, personalizing recommendations, building a nightlife graph.</p>
+          <p>Fans buy tickets, discover events, follow collectives and artists. The Nocturn attendee app becomes the nightlife companion — personalized event discovery, taste-based recommendations, social groups, loyalty rewards, and a nightlife graph that learns what you love. Think Spotify Wrapped, but for your nights out. As the network grows, Nocturn becomes the place people go to decide what they're doing this weekend.</p>
         </div>
       </div>
 
@@ -754,7 +835,7 @@ footer {
         </div>
         <div class="flywheel-content">
           <h4 style="color: var(--coral);">Artists & Creators</h4>
-          <p>DJs, performers, visual artists build profiles, get booked through the platform, and eventually monetize their own fanbase — merchandise, exclusive content, direct-to-fan models. The Patreon of nightlife.</p>
+          <p>DJs, producers, visual artists, and performers build profiles, get discovered, and get booked through the platform. But the real unlock is what comes next: direct-to-fan monetization. Exclusive mixes, behind-the-scenes content, merchandise drops, subscriber-only events, tip jars at live sets — a full Patreon-style creator economy built natively into the nightlife experience. Artists stop being booked talent and start building independent businesses on top of Nocturn.</p>
         </div>
       </div>
     </div>
@@ -1108,6 +1189,121 @@ footer {
 
 <div class="divider"></div>
 
+<!-- REVENUE MODEL -->
+<section>
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">The Business</div>
+      <h2 class="section-title">Four revenue engines,<br>not one.</h2>
+      <p class="section-desc">
+        Nocturn isn't a single-revenue-line business. The platform is designed to compound — starting with
+        SaaS and ticketing, then layering fintech and creator monetization as the network scales. Each
+        revenue line reinforces the others.
+      </p>
+    </div>
+
+    <div class="revenue-grid fade-up delay-1">
+      <div class="revenue-card r1">
+        <div class="revenue-icon">🔑</div>
+        <div class="revenue-name">SaaS Platform</div>
+        <div class="revenue-desc">Monthly subscription for the AI agent OS. Tiered pricing by operator size — from solo promoters to multi-venue operations. Predictable, recurring revenue from day one.</div>
+        <span class="revenue-model-tag">Recurring MRR</span>
+      </div>
+      <div class="revenue-card r2">
+        <div class="revenue-icon">🎟️</div>
+        <div class="revenue-name">Ticketing</div>
+        <div class="revenue-desc">Per-ticket fee on every transaction processed through the platform. High volume, high frequency — nightlife events happen every single week. Revenue scales linearly with operator growth.</div>
+        <span class="revenue-model-tag">Transaction fees</span>
+      </div>
+      <div class="revenue-card r3">
+        <div class="revenue-icon">🏦</div>
+        <div class="revenue-name">Fintech</div>
+        <div class="revenue-desc">Embedded financial products — instant payouts, event-specific financing, revenue-based lending, insurance, and payment processing. The Toast playbook: become the financial infrastructure.</div>
+        <span class="revenue-model-tag">Financial services margin</span>
+      </div>
+      <div class="revenue-card r4">
+        <div class="revenue-icon">🎨</div>
+        <div class="revenue-name">Creator Economy</div>
+        <div class="revenue-desc">Platform take on artist/creator monetization — subscriptions, merch drops, exclusive content, tip jars. A Patreon-style revenue share model built natively into nightlife. The long-term moat.</div>
+        <span class="revenue-model-tag">Revenue share</span>
+      </div>
+    </div>
+
+    <div class="valuation-block fade-up delay-2">
+      <h3>The valuation math at scale</h3>
+      <p>
+        Vertical SaaS platforms that own their industry's operating system, layer fintech, and build marketplace
+        dynamics consistently achieve <span class="valuation-highlight">$5B–$20B+ valuations</span>. Toast did it in restaurants at $16B.
+        Mindbody did it in fitness at $1.9B. Nightlife is a larger market than both — with <span class="valuation-highlight">zero incumbent</span>,
+        a more fragmented operator base, and a massive untapped creator economy layer that neither Toast nor Mindbody ever had.
+        Nocturn has four compounding revenue engines where most vertical platforms start with one.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT WE NEED -->
+<section>
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">What We Need</div>
+      <h2 class="section-title">Building the crew to build the OS</h2>
+      <p class="section-desc">
+        The vision is clear. The market is waiting. What Nocturn needs now is the right people and
+        resources to move fast and build this right.
+      </p>
+    </div>
+
+    <div class="need-grid fade-up delay-1">
+      <div class="need-card highlight-card">
+        <div class="need-icon">🧑‍💻</div>
+        <h4>A Technical Co-Founder</h4>
+        <p>
+          This is the most important hire. Nocturn needs a passionate, technical co-founder who wants to build
+          an AI-native platform from the ground up — someone who's as excited about autonomous agents and system
+          architecture as they are about nightlife culture. Not a mercenary. A true partner who sees the vision
+          and wants to own the technical side of building a category-defining company. If that's you, or you know
+          someone — reach out.
+        </p>
+      </div>
+
+      <div class="need-card">
+        <div class="need-icon">💰</div>
+        <h4>Capital</h4>
+        <p>
+          Early-stage funding to build the core platform, ship the first two agents, and onboard the initial
+          cohort of NYC operators. Looking for investors who understand vertical SaaS, AI, and the power of
+          founder-market fit — and who want to get in before this category is defined.
+        </p>
+      </div>
+
+      <div class="need-card">
+        <div class="need-icon">👥</div>
+        <h4>Angel Investors & Advisors</h4>
+        <p>
+          Strategic angels who bring more than capital — operators in the nightlife space, founders who've built
+          vertical platforms, people deep in AI/ML, and anyone connected to the electronic music and nightlife world.
+          The right angels accelerate everything: intros, credibility, domain expertise, and early customer access.
+        </p>
+      </div>
+
+      <div class="need-card">
+        <div class="need-icon">🧭</div>
+        <h4>A Board That Gets It</h4>
+        <p>
+          Looking to build a small, focused board with people who've seen the vertical SaaS playbook work —
+          ideally with experience in marketplaces, fintech, or creator economy companies. People who can
+          challenge the strategy, open doors, and help navigate the path from zero to category leader.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- FOUNDER -->
 <section>
   <div class="container">
@@ -1124,18 +1320,25 @@ footer {
           stitching together five different apps just to throw one night.
         </p>
         <p>
-          That firsthand experience is Nocturn's edge. Every feature, every agent workflow, every design
-          decision is rooted in the reality of what nightlife operators actually need — not what a product
-          team imagines they might want.
+          Before Nocturn, Shawn built his career inside three startups. Most notably, he was the
+          <strong>first employee at Float</strong> — the spend management platform — where he helped scale
+          the company from zero to over 3,000 customers. He knows what it looks like to build a vertical
+          platform from nothing, earn customer trust one by one, and create a category.
         </p>
         <p>
-          He's building the tool he wished existed.
+          That combination — deep nightlife operating experience and a front-row seat to startup scaling — is
+          Nocturn's edge. Every feature, every agent workflow, every design decision is rooted in the reality
+          of what nightlife operators actually need, built by someone who knows how to ship product and grow a company.
         </p>
         <div class="founder-cred">
           <span class="cred-tag">Nightlife operator</span>
+          <span class="cred-tag">1st employee at Float (0 → 3,000 customers)</span>
+          <span class="cred-tag">3 startups</span>
           <span class="cred-tag">NYC-based</span>
-          <span class="cred-tag">Builder & technologist</span>
           <span class="cred-tag">Founder-market fit</span>
+        </div>
+        <div style="margin-top: 16px;">
+          <a href="https://sqresume.com" target="_blank" style="font-size: 0.85rem; color: var(--purple-light); text-decoration: none; border-bottom: 1px solid rgba(168,85,247,0.3);">sqresume.com →</a>
         </div>
       </div>
     </div>
