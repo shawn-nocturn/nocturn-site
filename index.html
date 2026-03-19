@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nocturn — The Agentic Work OS for Nightlife</title>
-<meta name="description" content="Run your collective, sell tickets, get paid. Nocturn is the agentic work OS for nightlife collectives and promoters.">
+<title>Nocturn — The OS for Independent Music Culture</title>
+<meta name="description" content="Built for the people who keep music culture alive. Nocturn is the agentic work OS for music collectives, independent promoters, and the operators building real scenes.">
 
 <!-- Open Graph (iMessage, LinkedIn, Slack, etc.) -->
 <meta property="og:type" content="website">
@@ -717,6 +717,7 @@ footer a:hover { color: var(--purple-light); }
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
   .quote-block { padding: 32px 24px; }
   .quote-block p { font-size: 1.2rem; }
+  .manifesto-grid { grid-template-columns: 1fr !important; }
 }
 
 /* --- ANIMATIONS --- */
@@ -840,13 +841,43 @@ footer a:hover { color: var(--purple-light); }
 
 <div class="divider"></div>
 
+<!-- CULTURE MANIFESTO -->
+<section style="padding: 80px 0;">
+  <div class="container">
+    <div class="fade-up" style="text-align: center; max-width: 680px; margin: 0 auto 56px;">
+      <div class="section-label">Why We Exist</div>
+      <h2 class="section-title">Music culture isn't a market.<br>It's a movement.</h2>
+      <p class="section-subtitle">The scenes that define cities — underground clubs, warehouse raves, independent collectives — aren't built by corporations. They're built by people who love music. Nocturn gives those people the tools to do it sustainably, independently, and on their own terms.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;" class="fade-up delay-1 manifesto-grid">
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px;">
+        <div style="font-size: 1.8rem; margin-bottom: 14px;">🎵</div>
+        <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary);">Independent, Always</h3>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7;">Built for operators who answer to their community, not platforms. No takeovers, no algorithm changes that tank your reach overnight.</p>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px;">
+        <div style="font-size: 1.8rem; margin-bottom: 14px;">🏙️</div>
+        <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary);">Culture Over Commerce</h3>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7;">The best nights aren't always the most profitable ones. We build tools that help you stay financially healthy without compromising the experience.</p>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px;">
+        <div style="font-size: 1.8rem; margin-bottom: 14px;">🔊</div>
+        <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary);">Built by the Scene</h3>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7;">Founded by someone who runs a collective, DJs, and has been in the underground for 15+ years. We know what matters because we live it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- FEATURES -->
 <section class="features" id="features">
   <div class="container">
     <div class="fade-up">
       <div class="section-label">Platform</div>
-      <h2 class="section-title">One platform. Every part of the night.</h2>
-      <p class="section-subtitle">Stop duct-taping five apps together. Nocturn gives your collective a single command center.</p>
+      <h2 class="section-title">One platform. Built around the music.</h2>
+      <p class="section-subtitle">Stop duct-taping five apps together. Nocturn gives music collectives a single command center — so the business side never gets in the way of the creative side.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card fade-up">
@@ -857,7 +888,7 @@ footer a:hover { color: var(--purple-light); }
       <div class="feature-card fade-up delay-1">
         <span class="feature-emoji">🎟️</span>
         <h3>Ticketing & Door</h3>
-        <p>Beautiful event pages, flexible ticket tiers, QR check-in, and real-time door analytics. Built for the way nightlife ticketing actually works.</p>
+        <p>Beautiful event pages, flexible ticket tiers, QR check-in, and real-time door analytics. Built for the way music communities actually sell tickets and show up.</p>
       </div>
       <div class="feature-card fade-up delay-2">
         <span class="feature-emoji">💳</span>
@@ -891,7 +922,7 @@ footer a:hover { color: var(--purple-light); }
     <div class="fade-up">
       <div class="section-label">AI Agents</div>
       <h2 class="section-title">Four agents. One crew that never sleeps.</h2>
-      <p class="agents-intro">These aren't chatbots. They're autonomous AI agents that do the work — so you can stop managing spreadsheets and start building your night. You set the vision. They execute.</p>
+      <p class="agents-intro">These aren't chatbots. They're autonomous AI agents that handle every part of running the business — so you can stop managing spreadsheets and start building the scene. You set the vision. They execute.</p>
     </div>
     <div class="agents-grid">
       <div class="agent-card fade-up">
@@ -926,7 +957,7 @@ footer a:hover { color: var(--purple-light); }
           <div class="agent-icon">⚙️</div>
           <h3>Operations Agent</h3>
         </div>
-        <p>Keeps the business side tight. Manages booking logistics, venue coordination, staff scheduling, risk and compliance, vendor contracts, promoter settlements, and post-event reporting — the backbone that lets you focus on the night.</p>
+        <p>Keeps the business side tight. Manages booking logistics, venue coordination, staff scheduling, risk and compliance, vendor contracts, promoter settlements, and post-event reporting — the backbone that lets you focus on the music.</p>
         <div class="agent-highlight">Risk, compliance, contracts, and logistics — covered</div>
         <div class="agent-highlight">Coming: predictive staffing and automated venue matching</div>
       </div>
