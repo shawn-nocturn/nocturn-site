@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shawn Qanun × Antler — Nocturn</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌙</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --purple: #7B2FF7;
+  --purple-light: #A855F7;
+  --purple-glow: rgba(123,47,247,0.18);
+  --amber: #FBBF24;
+  --bg-primary: #09090B;
+  --bg-secondary: #18181B;
+  --bg-card: #1C1C22;
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  --border: rgba(255,255,255,0.07);
+  --border-accent: rgba(123,47,247,0.3);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(9,9,11,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-icon { font-size: 22px; }
+.nav-logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
+.nav-badge {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--amber); background: rgba(251,191,36,0.12);
+  border: 1px solid rgba(251,191,36,0.25);
+  padding: 4px 12px; border-radius: 20px;
+}
+
+/* CONTAINER */
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+.container-wide { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(123,47,247,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--purple-light);
+  margin-bottom: 24px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 20px; height: 2px;
+  background: var(--purple-light);
+}
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700; line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, #A855F7, #7B2FF7);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 1.15rem; color: var(--text-secondary);
+  max-width: 580px; line-height: 1.75; margin-bottom: 40px;
+}
+.hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+  padding: 14px 28px;
+  background: var(--purple); color: white;
+  border-radius: 10px; text-decoration: none;
+  font-weight: 600; font-size: 0.95rem;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: #6A22E0; transform: translateY(-1px); }
+.btn-ghost {
+  padding: 14px 24px;
+  background: transparent; color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 10px; text-decoration: none;
+  font-weight: 500; font-size: 0.95rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--border-accent); color: var(--text-primary); }
+
+/* SECTION */
+section { padding: 80px 0; }
+.section-label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--purple-light);
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 700; line-height: 1.2;
+  letter-spacing: -0.02em; margin-bottom: 16px;
+}
+.section-body {
+  font-size: 1.05rem; color: var(--text-secondary);
+  line-height: 1.8; max-width: 640px;
+}
+.section-body + .section-body { margin-top: 16px; }
+
+/* DIVIDER */
+.divider { width: 100%; height: 1px; background: var(--border); }
+
+/* STAT STRIP */
+.stat-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); border-radius: 14px;
+  overflow: hidden; margin-top: 56px;
+}
+.stat-item {
+  background: var(--bg-secondary);
+  padding: 28px 24px;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem; font-weight: 700;
+  color: var(--text-primary); line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-num span { color: var(--purple-light); }
+.stat-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+
+/* CARDS */
+.card-grid { display: grid; gap: 16px; margin-top: 40px; }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+}
+.card-accent { border-color: var(--border-accent); }
+.card-icon { font-size: 1.6rem; margin-bottom: 14px; }
+.card-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+.card-body { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
+.card-tag {
+  display: inline-block; margin-top: 14px;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--purple-light);
+  background: rgba(168,85,247,0.1);
+  border: 1px solid rgba(168,85,247,0.2);
+  padding: 3px 10px; border-radius: 20px;
+}
+
+/* FOUNDER STRIP */
+.founder-strip {
+  display: flex; align-items: center; gap: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  border-radius: 16px; padding: 32px;
+  margin-top: 40px;
+}
+.founder-photo {
+  width: 80px; height: 80px; border-radius: 50%;
+  object-fit: cover; flex-shrink: 0;
+  border: 2px solid rgba(123,47,247,0.4);
+}
+.founder-info { flex: 1; }
+.founder-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.founder-role { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
+.founder-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  font-size: 0.78rem; font-weight: 500;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 4px 12px; border-radius: 20px;
+}
+
+/* TIMELINE */
+.timeline { margin-top: 40px; }
+.timeline-item {
+  display: flex; gap: 20px;
+  padding-bottom: 32px;
+  position: relative;
+}
+.timeline-item:not(:last-child)::after {
+  content: '';
+  position: absolute; left: 19px; top: 40px;
+  width: 2px; bottom: 0;
+  background: var(--border);
+}
+.timeline-dot {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--border-accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0; position: relative; z-index: 1;
+}
+.timeline-content { flex: 1; padding-top: 6px; }
+.timeline-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+.timeline-body { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
+
+/* QUOTE BLOCK */
+.quote-block {
+  background: linear-gradient(135deg, rgba(123,47,247,0.08) 0%, rgba(123,47,247,0.03) 100%);
+  border: 1px solid var(--border-accent);
+  border-radius: 16px; padding: 36px;
+  margin-top: 40px;
+}
+.quote-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem; font-weight: 500;
+  line-height: 1.6; color: var(--text-primary);
+  margin-bottom: 20px;
+}
+.quote-text::before { content: '"'; color: var(--purple-light); }
+.quote-text::after { content: '"'; color: var(--purple-light); }
+.quote-attr { font-size: 0.85rem; color: var(--text-muted); }
+
+/* ASK SECTION */
+.ask-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+.ask-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px; padding: 28px;
+  text-align: center;
+}
+.ask-card.primary {
+  background: linear-gradient(135deg, rgba(123,47,247,0.15), rgba(123,47,247,0.05));
+  border-color: var(--border-accent);
+}
+.ask-icon { font-size: 1.8rem; margin-bottom: 12px; }
+.ask-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+.ask-body { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; }
+
+/* CTA */
+.cta-section {
+  padding: 80px 0 120px;
+  text-align: center;
+}
+.cta-section h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700; margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.cta-section p {
+  font-size: 1.05rem; color: var(--text-secondary);
+  max-width: 520px; margin: 0 auto 36px;
+}
+.cta-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+/* FOOTER */
+footer {
+  padding: 24px 32px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.8rem; color: var(--text-muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 680px) {
+  .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; }
+  .stat-strip { grid-template-columns: repeat(2, 1fr); }
+  .ask-grid { grid-template-columns: 1fr; }
+  .founder-strip { flex-direction: column; text-align: center; }
+  .founder-pills { justify-content: center; }
+  nav { padding: 14px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <span class="nav-logo-icon">🌙</span>
+    <span class="nav-logo-text">Nocturn</span>
+  </a>
+  <span class="nav-badge">For Antler</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Antler Founder Residency</div>
+    <h1>I'm building the <em>operating system</em> for independent music culture.</h1>
+    <p class="hero-sub">
+      I've spent 15+ years running events, DJing stages, building collectives, and shipping software. Nocturn is the company I've been building myself for — the one the industry never had.
+    </p>
+    <div class="hero-actions">
+      <a href="https://trynocturn.com" target="_blank" class="btn-primary">View Live Site →</a>
+      <a href="https://trynocturn.com/investors.html" target="_blank" class="btn-ghost">Investor Overview</a>
+    </div>
+
+    <!-- STAT STRIP -->
+    <div class="stat-strip">
+      <div class="stat-item">
+        <div class="stat-num">15<span>+</span></div>
+        <div class="stat-label">Years in the scene</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3<span>k</span></div>
+        <div class="stat-label">Float customers (0→3K as 1st employee)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Startups founded</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span>$</span>105<span>B</span></div>
+        <div class="stat-label">Global nightlife market</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- THE FOUNDER -->
+<section>
+  <div class="container">
+    <div class="section-label">The Founder</div>
+    <h2 class="section-title">I live every side of this market.</h2>
+    <p class="section-body">
+      Most founders research a market. I grew up in it. I've been the operator running the door and managing the finances. I've been the artist on the lineup. I've been the fan who shows up to every event. And I've spent years building software at scale.
+    </p>
+    <p class="section-body">
+      That's not a coincidence — it's the unfair advantage Nocturn is built on.
+    </p>
+
+    <div class="founder-strip">
+      <img src="/headshot.jpg" alt="Shawn Qanun" class="founder-photo" onerror="this.style.display='none'">
+      <div class="founder-info">
+        <div class="founder-name">Shawn Qanun</div>
+        <div class="founder-role">Founder, Nocturn · Toronto → NYC</div>
+        <div class="founder-pills">
+          <span class="pill">🎛️ No Sleep Club — collective founder</span>
+          <span class="pill">🎵 Lock Eight — DJ & producer</span>
+          <span class="pill">❄️ Snowflake — Agentic AI</span>
+          <span class="pill">💸 Float — 1st employee, 0→3K customers</span>
+          <span class="pill">🔗 sqresume.com</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-grid card-grid-2" style="margin-top: 24px;">
+      <div class="card card-accent">
+        <div class="card-icon">🎛️</div>
+        <div class="card-title">Operator</div>
+        <div class="card-body">Founded No Sleep Club — a real, active music collective. I've personally dealt with every broken tool, every manual spreadsheet, every missed payout that Nocturn is built to fix.</div>
+        <span class="card-tag">Domain Depth</span>
+      </div>
+      <div class="card card-accent">
+        <div class="card-icon">⚙️</div>
+        <div class="card-title">Builder</div>
+        <div class="card-body">Currently shipping agentic AI at Snowflake. 1st employee at Float (fintech SaaS, 0→3K customers). Three startups built. I know how to go from zero to product-market fit.</div>
+        <span class="card-tag">Builder Credibility</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- THE PROBLEM -->
+<section>
+  <div class="container">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">The people building culture are being forced out by the people who don't care about it.</h2>
+    <p class="section-body">
+      Independent promoters, music collectives, and underground venues run the most culturally significant events in the world — and they do it on WhatsApp threads, Google Sheets, and gut instinct.
+    </p>
+    <p class="section-body">
+      Meanwhile, commercial operators with capital and infrastructure are swallowing the scene. Not because they're better — because they have better tools.
+    </p>
+
+    <div class="card-grid card-grid-3" style="margin-top: 32px;">
+      <div class="card">
+        <div class="card-icon">💸</div>
+        <div class="card-title">Financial chaos</div>
+        <div class="card-body">Bar splits, artist payments, expense tracking — all manual. Collectives bleed money they don't know they're losing.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <div class="card-title">No operational layer</div>
+        <div class="card-body">Ticketing, guest lists, lineups, artist contracts — stitched together from 6 different apps with no single source of truth.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📣</div>
+        <div class="card-title">Marketing left to chance</div>
+        <div class="card-body">Flyers on Instagram and word of mouth. No data on who shows up, what works, or how to grow the audience consistently.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- THE SOLUTION -->
+<section>
+  <div class="container">
+    <div class="section-label">The Solution</div>
+    <h2 class="section-title">One agentic OS. Everything the scene needs to operate.</h2>
+    <p class="section-body">
+      Nocturn is the vertical SaaS platform for independent music culture — the same transformation Toast brought to restaurants, Mindbody brought to fitness. Nocturn brings it to the operators who make music culture alive.
+    </p>
+
+    <div class="card-grid card-grid-2" style="margin-top: 32px;">
+      <div class="card">
+        <div class="card-icon">🎟️</div>
+        <div class="card-title">Events & Ticketing</div>
+        <div class="card-body">Create events, manage guest lists, sell tickets, track door revenue — all from one place. No Eventbrite cut, no Posh dependency.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">💰</div>
+        <div class="card-title">Finance & Payouts</div>
+        <div class="card-body">Automatic bar split calculations, artist payments, expense tracking. Know exactly what you made on every night.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <div class="card-title">AI Agents</div>
+        <div class="card-body">Finance agent, marketing agent, growth agent, operations agent — autonomous workflows that run the business so operators can focus on the music.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <div class="card-title">Marketing & Growth</div>
+        <div class="card-body">Audience analytics, campaign tools, and data on who shows up. Turn one-time attendees into loyal community members.</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-text">We're building this because music culture deserves to stay independent. The tools have always existed for commercial operators. It's time they existed for the people who actually love the music.</div>
+      <div class="quote-attr">— Shawn Qanun, Founder</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TRACTION -->
+<section>
+  <div class="container">
+    <div class="section-label">Momentum</div>
+    <h2 class="section-title">Built in public. Moving fast.</h2>
+    <p class="section-body">
+      Nocturn is pre-revenue, pre-seed — but the foundation is real. The site is live, the waitlist is open, and the product vision is sharp. Here's where things stand.
+    </p>
+
+    <div class="timeline" style="margin-top: 40px;">
+      <div class="timeline-item">
+        <div class="timeline-dot">✅</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Live at trynocturn.com</div>
+          <div class="timeline-body">Full landing page, investor overview, and app mockup showcase deployed and collecting waitlist signups. Supabase integration live.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">✅</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Product vision validated through lived experience</div>
+          <div class="timeline-body">Every feature in Nocturn maps to a real pain I've experienced as an operator. No Sleep Club is the first design partner — built on 15+ years in the scene.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">✅</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Technical foundation confirmed</div>
+          <div class="timeline-body">Agentic AI architecture designed. Working daily in AI/data infrastructure at Snowflake — applying those patterns directly to Nocturn's agent stack.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">🔜</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Customer discovery underway</div>
+          <div class="timeline-body">Booking first calls with independent promoters and music collectives across Toronto and NYC to validate the product priorities.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">🔜</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Seeking technical co-founder</div>
+          <div class="timeline-body">Looking for a co-founder who can build fast and believes in the mission. Antler is the right environment to find that person.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY ANTLER -->
+<section>
+  <div class="container">
+    <div class="section-label">Why Antler</div>
+    <h2 class="section-title">I'm not here for the capital alone.</h2>
+    <p class="section-body">
+      Antler is where exceptional founders find their co-founders, sharpen their thesis, and accelerate from idea to company. That's exactly the stage I'm at — and the community and co-founder matching is the most valuable thing Antler can offer right now.
+    </p>
+
+    <div class="ask-grid">
+      <div class="ask-card primary">
+        <div class="ask-icon">🤝</div>
+        <div class="ask-title">Co-founder match</div>
+        <div class="ask-body">I need a world-class technical co-founder who can build fast. Antler's network is the fastest path to finding the right person.</div>
+      </div>
+      <div class="ask-card">
+        <div class="ask-icon">🧠</div>
+        <div class="ask-title">Founder community</div>
+        <div class="ask-body">I want to be in the room with other ambitious founders. The peer pressure and shared learning of a cohort is hard to replicate on your own.</div>
+      </div>
+      <div class="ask-card">
+        <div class="ask-icon">🚀</div>
+        <div class="ask-title">Acceleration</div>
+        <div class="ask-body">Pre-seed capital + structured program to get from MVP to first customers faster. I'm ready to go full-time the moment the conditions are right.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Let's build something that lasts.</h2>
+    <p>I'm building for the long term — for the scenes, the collectives, and the operators who make music culture worth showing up for.</p>
+    <div class="cta-links">
+      <a href="mailto:shawn@trynocturn.com" class="btn-primary">shawn@trynocturn.com</a>
+      <a href="https://trynocturn.com/investors.html" target="_blank" class="btn-ghost">Full Investor Overview →</a>
+      <a href="https://sqresume.com" target="_blank" class="btn-ghost">Resume →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>🌙 Nocturn — trynocturn.com</span>
+  <span>Confidential · For Antler</span>
+</footer>
+
+</body>
+</html>
