@@ -851,7 +851,7 @@ footer a:hover { color: var(--purple-light); }
     </div>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;" class="fade-up delay-1 manifesto-grid">
       <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px;">
-        <div style="font-size: 1.8rem; margin-bottom: 14px;">💜</div>
+        <div style="font-size: 1.8rem; margin-bottom: 14px;">🎤</div>
         <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary);">Independent, Always</h3>
         <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7;">Built for operators who answer to their community, not platforms. No takeovers, no algorithm changes that tank your reach overnight.</p>
       </div>
@@ -1055,17 +1055,17 @@ footer a:hover { color: var(--purple-light); }
     </div>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;" class="fade-up delay-1 manifesto-grid">
       <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; text-align: center;">
-        <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(123,47,247,0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 1.2rem; font-weight: 800; color: #A855F7;">M</div>
+        <div style="font-size: 1.8rem; margin-bottom: 14px;">📱</div>
         <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">Mobile</h3>
         <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7;">Run your business from your phone. Voice notes, one-tap settlements, and team chat — built for operators who aren't sitting at a desk.</p>
       </div>
       <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; text-align: center;">
-        <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(45,212,191,0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 1.2rem; font-weight: 800; color: #2DD4BF;">D</div>
+        <div style="font-size: 1.8rem; margin-bottom: 14px;">💻</div>
         <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">Desktop</h3>
         <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7;">Full analytics, event planning, and financial reports when you need the bigger picture. Everything synced, nothing duplicated.</p>
       </div>
       <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; text-align: center;">
-        <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(251,191,36,0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 1.2rem; font-weight: 800; color: #FBBF24;">C</div>
+        <div style="font-size: 1.8rem; margin-bottom: 14px;">🎙️</div>
         <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">On a Call</h3>
         <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7;">Record your planning calls and Nocturn transcribes them, extracts action items, and updates your team — automatically.</p>
       </div>
@@ -1193,6 +1193,10 @@ document.querySelectorAll('.waitlist-form').forEach(form => {
   });
 });
 </script>
+
+<!-- Twemoji: consistent color emoji across all browsers/OS -->
+<script src="https://cdn.jsdelivr.net/npm/twemoji@14/dist/twemoji.min.js"></script>
+<script>twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });</script>
 
 </body>
 </html>
