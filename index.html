@@ -1075,6 +1075,41 @@ footer a:hover { color: var(--purple-light); }
 
 <div class="divider"></div>
 
+<!-- VENUE MARKETPLACE -->
+<section style="padding: 64px 0;" id="venues">
+  <div class="container">
+    <div class="fade-up" style="text-align: center; max-width: 620px; margin: 0 auto 40px;">
+      <div class="section-label">Coming Soon</div>
+      <h2 class="section-title">The venue marketplace.<br>Find your space. Fill your nights.</h2>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75;">Collectives browse venues by type, capacity, and neighbourhood — and send professional buyout requests in one tap. Venues list their available nights and get matched with the right promoters. No more cold DMs. No more guessing.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 700px; margin: 0 auto;" class="fade-up delay-1 manifesto-grid">
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 20px; text-align: center;">
+        <div style="font-size: 1.4rem; margin-bottom: 10px;">✊</div>
+        <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">For Collectives</h3>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">Browse venues in your city, filter by vibe and capacity, and send polished buyout requests — powered by your event track record.</p>
+        <form class="waitlist-form" id="waitlist-form-venue-collective" style="max-width: 100%;">
+          <input type="email" placeholder="your@email.com" required style="flex: 1;">
+          <button type="submit" style="white-space: nowrap;">Get Early Access</button>
+        </form>
+        <div class="form-success" id="success-venue-collective">You're in. We'll notify you when it launches.</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid rgba(45,212,191,0.2); border-radius: 14px; padding: 24px 20px; text-align: center;">
+        <div style="font-size: 1.4rem; margin-bottom: 10px;">🔥</div>
+        <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--text-primary);">For Venues</h3>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">List your available nights and get matched with vetted collectives and promoters who bring real audiences. Fill your calendar, not your inbox.</p>
+        <form class="waitlist-form" id="waitlist-form-venue-space" style="max-width: 100%;">
+          <input type="email" placeholder="venue@email.com" required style="flex: 1;">
+          <button type="submit" style="white-space: nowrap;">List Your Space</button>
+        </form>
+        <div class="form-success" id="success-venue-space">You're in. We'll notify you when it launches.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- FINAL CTA -->
 <section class="final-cta" id="waitlist">
   <div class="container fade-up">
@@ -1157,7 +1192,7 @@ document.querySelectorAll('.waitlist-form').forEach(form => {
         },
         body: JSON.stringify({
           email: email,
-          source: form.id === 'waitlist-form-hero' ? 'hero' : 'footer',
+          source: form.id.replace('waitlist-form-', ''),
           referrer: document.referrer || null,
           user_agent: navigator.userAgent
         })
@@ -1166,15 +1201,17 @@ document.querySelectorAll('.waitlist-form').forEach(form => {
       if (res.ok || res.status === 201) {
         // Success
         form.style.display = 'none';
-        const successId = form.id === 'waitlist-form-hero' ? 'success-hero' : 'success-footer';
-        document.getElementById(successId).style.display = 'block';
+        const successId = 'success-' + form.id.replace('waitlist-form-', '');
+        const successEl = document.getElementById(successId);
+        if (successEl) successEl.style.display = 'block';
         const note = form.nextElementSibling;
         if (note && note.classList.contains('form-note')) note.style.display = 'none';
       } else if (res.status === 409) {
         // Duplicate email — still show success (don't reveal they're already signed up)
         form.style.display = 'none';
-        const successId = form.id === 'waitlist-form-hero' ? 'success-hero' : 'success-footer';
-        document.getElementById(successId).style.display = 'block';
+        const successId = 'success-' + form.id.replace('waitlist-form-', '');
+        const successEl = document.getElementById(successId);
+        if (successEl) successEl.style.display = 'block';
         const note = form.nextElementSibling;
         if (note && note.classList.contains('form-note')) note.style.display = 'none';
       } else {
